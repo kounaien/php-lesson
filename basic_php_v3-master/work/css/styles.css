@@ -1,10 +1,10 @@
-body{
+body {
   color: #333;
   font-family: Verdana, sans-serif;
   margin: 0;
 }
 
-header{
+header {
   background-color: #efefef;
   padding-top: 32px;
   padding-bottom: 32px;
@@ -65,7 +65,7 @@ header{
   margin-right: auto;
 }
 
-.works > h1{
+.works > h1 {
   font-weight: normal;
   font-size: 24px;
   text-align: center;
@@ -83,6 +83,21 @@ header{
 
 .works p {
   line-height: 1.8;
+}
+
+.works a {
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  background: #08c;
+  border-radius: 4px;
+  padding: 12px;
+  color: white;
+}
+
+.works a:hover {
+  opacity: 0.8;
 }
 
 footer p {
