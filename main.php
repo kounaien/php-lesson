@@ -80,3 +80,22 @@ $moreScores = [44, 72, 'prefect', [30, 40]
 
 print_r($moreScores);
 echo $moreScores[3][0] . PHP_EOL;//3は配列が格納されているキー
+
+
+//引数が何個来ても処理ができるようにするには...nubbersで可変長引数
+function getStats(...$numbers)
+{
+  $total = 0;
+  foreach ($numbers as $number) {
+    $total += $number;
+  }
+  return [$total, $total / count($numbers)]; //配列の個数を求めるのはcount
+}
+
+// list($sum, $avarage) = (getStats(1,3,5));
+[$sum, $avarage] = (getStats(1,3,5)); //一気に代入している上記の短縮形
+echo $sum . PHP_EOL . $avarage . PHP_EOL;
+// echo sum(1, 3, 5) . PHP_EOL;
+// echo sum(1, 4, 3, 3) . PHP_EOL;
+
+
