@@ -66,6 +66,21 @@ $product = substr($input3, 8, 8);
 
 $amount = substr($input3, 16, 4); //4は省略可能
 
-echo $date . PHP_EOL . $product . PHP_EOL;
-echo number_format($amount) . PHP_EOL;
+$date . PHP_EOL . $product . PHP_EOL;
+number_format($amount) . PHP_EOL;
 
+//文字列を検索置換
+$input4 = 'Call us at 03-3001-1256 or 03-3015-3222';
+//preg_match()という関数を使う　第一引数に検索したいパターン、第荷引数に検索したい文字列、検索した格納する変数
+//正規表現スラッシュで囲んでバックスラッシュで数値が四桁分。。。。
+$pattern = '/\d{2}-\d{4}-\d{4}/';
+preg_match_all($pattern, $input4, $mathes);
+print_r($mathes);
+
+//preg_match()は最初に見つかった結果だけを$matchesに格納していたがすべての見つかった結果を格納したい場合は
+//preg_match_all()を使う
+
+//番号を伏せ字に置換してみる　パターンに応じて置換するにはpreg_replace
+$input4 = preg_replace($pattern, '**-****-****', $input4);
+echo $input4 . PHP_EOL;
+//Call us at **-****-**** or **-****-****
