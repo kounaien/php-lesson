@@ -82,5 +82,27 @@ print_r($mathes);
 
 //番号を伏せ字に置換してみる　パターンに応じて置換するにはpreg_replace
 $input4 = preg_replace($pattern, '**-****-****', $input4);
-echo $input4 . PHP_EOL;
-//Call us at **-****-**** or **-****-****
+$input4 . PHP_EOL;
+//Call us at **-****-**** or **-****-****∫
+
+$d = [2020, 11, 15];
+"$d[0]-$d[1]-$d[2]" . PHP_EOL;
+implode('-', $d) . PHP_EOL; //区切り文字で配列の要素を連結
+//2020-11-15
+
+$t = '17:32:45';
+print_r(explode(':', $t)); ////コロンで$tを区切ってりそれぞれの要素を持つ配列を返す
+
+
+//数学関連の関数
+$n = 5.6284;
+
+ceil($n) . PHP_EOL;//切り上げ小数点以下
+floor($n) . PHP_EOL;//小数点以下切り捨て
+round($n) . PHP_EOL;// 四捨五入して整数にする
+round($n, 2) . PHP_EOL;//小数点以下２桁になるように四捨五入
+mt_rand(1, 6)  .  PHP_EOL;//乱数を生成　１以上６以下の整数値を生成
+echo max(4, 9, 7) . PHP_EOL;//最大値
+echo min(7, 3, 1) . PHP_EOL;//最小値
+M_PI . PHP_EOL;// 定数
+M_SQRT2 . PHP_EOL;// 定数
