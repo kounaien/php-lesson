@@ -102,7 +102,20 @@ floor($n) . PHP_EOL;//小数点以下切り捨て
 round($n) . PHP_EOL;// 四捨五入して整数にする
 round($n, 2) . PHP_EOL;//小数点以下２桁になるように四捨五入
 mt_rand(1, 6)  .  PHP_EOL;//乱数を生成　１以上６以下の整数値を生成
-echo max(4, 9, 7) . PHP_EOL;//最大値
-echo min(7, 3, 1) . PHP_EOL;//最小値
+max(4, 9, 7) . PHP_EOL;//最大値
+min(7, 3, 1) . PHP_EOL;//最小値
 M_PI . PHP_EOL;// 定数
 M_SQRT2 . PHP_EOL;// 定数
+
+
+//配列の要素を変更　先頭と末尾　
+$arr2 = [23, 52, 24];
+
+array_unshift($arr2, 10, 20);//先頭に要素を足す
+array_push($arr2, 123, 432);//末尾に要素を足す
+$arr2[] = 323;//一つだけの要素の追加だと添え字なしで値を代入する最後に
+
+array_shift($arr2);//一つづつしか削除できない
+array_pop($arr2);//末尾から一つづつしか削除できない
+print_r($arr2);
+
