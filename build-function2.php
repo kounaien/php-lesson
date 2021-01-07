@@ -51,3 +51,14 @@ $diff = array_diff($a, $b);
 print_r($diff);
 $common = array_intersect($a, $b);
 print_r($common);
+
+//array_map($n, $s)//何らかの関数とその配列を渡したとして配列の全てに適用氏新しい配列を返す$nは関数
+$prices = [10, 20, 30];
+$newPrices = array_map(
+function ($n) { return $n * 1.1 ;}, 
+//リターンだけで終わる処理ならアロー関数使える7.4から
+// fn($n) => $n * 1.1,
+ $prices
+);
+print_r($newPrices);
+
