@@ -22,5 +22,32 @@ rsort($scores2);//値を大きい順に並び替える
 shuffle($scores2);//実行するたびに値をシャッフルしてくれる これらはもとの配列を変更する
 print_r($scores2);
 $picked = array_rand($scores2, 2);///配列からランダムに要素を２個ピックアップ　ここで返されるのはキー
-echo $scores[$picked[0]] . PHP_EOL; //帰ってくるのは$scoresのキーの方なので変数に代入した添字で出す
-echo $scores[$picked[1]] . PHP_EOL; 
+$scores[$picked[0]] . PHP_EOL; //帰ってくるのは$scoresのキーの方なので変数に代入した添字で出す
+$scores[$picked[1]] . PHP_EOL; 
+
+//要素を一気に埋めてくれる
+$scores3 = array_fill(0,5, 10);
+$scores4 = range(0, 10, 2);
+//最後の引数は２きざみで
+
+print_r($scores4);
+array_sum($scores4) . PHP_EOL;
+max($scores4) . PHP_EOL;
+min($scores4) . PHP_EOL;
+array_sum($scores4) / count($scores4) . PHP_EOL;
+
+//array_merge 合わせた配列
+//aray_diff 引数1から引数2の要素を引いて残ったものを配列
+//aray_intersect　共通の要素を抽出し配列
+$a = [3, 4, 8];
+$b = [4, 8, 12];
+
+$merged = array_merge($a, $b);
+//$merged = [...$a, ...$b]; //mergedと一緒　大カッコの中で展開しただけこれはPHP7.4からスプレッド構文使える
+
+$uniques = array_unique($merged);
+print_r($uniques);
+$diff = array_diff($a, $b);
+print_r($diff);
+$common = array_intersect($a, $b);
+print_r($common);
