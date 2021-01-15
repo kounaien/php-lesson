@@ -62,7 +62,7 @@ function ($n) { return $n * 1.1 ;},
 );
 print_r($newPrices);
 
-//array_fillter'$a, $b)
+//array_fillter'$a, $fn)それぞれの要素に trueかfalseを適用する関数をかけてあげてtrueのみかえす配列を作る
 $numbers = range(1, 10);
 
 $evenNumbers = array_filter(
@@ -77,3 +77,15 @@ $evenNumbers = array_filter(
 );
 
 print_r($evenNumbers);
+
+//array_keys  array_values
+$scores5 = [
+  'taguchi' => 80,
+  'hayashi' => 30,
+  'kikuchi' => 10,
+];
+
+$keys = array_keys($scores5);
+print_r($keys);
+$values  = array_values($scores5);
+print_r($values);
