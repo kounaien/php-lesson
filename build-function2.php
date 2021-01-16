@@ -89,3 +89,51 @@ $keys = array_keys($scores5);
 print_r($keys);
 $values  = array_values($scores5);
 print_r($values);
+
+//特定のキーや値があるか調べたい場合
+if (array_key_exists('taguchi', $scores5) === true) {
+  echo 'taguchi is here' . PHP_EOL;
+}
+
+//値が配列の中にあるかどうか調べるにはin_array()
+if (in_array(80, $scores5) === true) {
+  echo '80 is in here' . PHP_EOL;
+}
+
+//値を検索して対応するキーを返す
+echo array_search(80, $scores5) . PHP_EOL;
+
+// sort() rsort keyが削除され連番になる
+//asort arsort keyが削除されない
+asort($scores5);
+print_r($scores5);
+arsort($scores5);
+print_r($scores5);
+
+//ksort krsort keyのほうでソートする
+ksort($scores5);
+print_r($scores5);
+krsort($scores5);
+print_r($scores5);
+
+//usort ソートしたい配列を渡してあげる関数にはPHPが要素を並び替えるときに、2つの値をどう比較するか定義
+$data = [
+  ['name' => 'tagucni', 'score' => 80],
+  ['name' => 'kikuchi', 'score' => 60],
+  ['name' => 'hayashi', 'score' => 70],
+  ['name' => 'tamachi', 'score' => 60],
+];
+usort(
+  $data,
+  function($a, $b) {
+    //2つの値が同じで順番を変えたくないときは０を返しなさいという仕様
+    //$a,$bに入ってくるのは配列の要素なので['score']を入れてあげる
+if($a['score'] === $b['score']) { 
+  return 0;
+}
+//1が後-1が前に来る？
+return $a['score'] > $b['score'] ? 1 : -1;
+  }
+);
+
+print_r($data);
