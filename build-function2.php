@@ -137,3 +137,18 @@ return $a['score'] > $b['score'] ? 1 : -1;
 );
 
 print_r($data);
+
+//array_multisort キーと値の方でも並び替えられる　まずarray_multisort($a, $b)だと$a
+//のほうから並び替えられるそして$bの方は$aの方で値が一致したところだけ並び替えられる
+
+//aerray_column($array, key)key ro value take
+$scores  = array_column($data, 'score');
+$names = array_column($data, 'name');
+
+array_multisort(
+  $scores, 
+  $names,
+  $data
+);
+
+print_r($data);
