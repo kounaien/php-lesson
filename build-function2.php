@@ -152,3 +152,15 @@ array_multisort(
 );
 
 print_r($data);
+
+//wは書き込み
+$fp = fopen('names.txt', 'w');
+//サイドすると追記ではなく常に上書き
+fwrite($fp, "taro\n");
+
+
+//aは追記
+$fp2 = fopen('names.txt', 'a');
+fwrite($fp, "jiro\n");
+fwrite($fp, "saburo\n");
+fclose($fp);
