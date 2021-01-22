@@ -164,3 +164,8 @@ $fp2 = fopen('names.txt', 'a');
 fwrite($fp, "jiro\n");
 fwrite($fp, "saburo\n");
 fclose($fp);
+
+$fp3 = fopen('names.txt', 'r');
+$contents = fread($fp3, filesize('names.txt'));
+fclose($fp3);
+echo $contents;
