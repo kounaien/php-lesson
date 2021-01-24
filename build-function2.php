@@ -166,6 +166,19 @@ fwrite($fp, "saburo\n");
 fclose($fp);
 
 $fp3 = fopen('names.txt', 'r');
-$contents = fread($fp3, filesize('names.txt'));
+
+// $contents = fread($fp3, filesize('names.txt'));
+//一行ずつ取得する場合
+while ($line = fgets($fp3) !== false) {
+  echo $line;
+};
+
 fclose($fp3);
-echo $contents;
+// echo $contents;
+
+//fopenを使わずにファイルを操作する関数
+$contents2 = "taro\njiro\nsaburo\n";
+file_put_contents('names2.txt', $contents2);
+
+$contents3 = file_get_contents('names2.txt');
+echo $contents3;
