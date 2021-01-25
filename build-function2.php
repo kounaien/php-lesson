@@ -182,3 +182,18 @@ file_put_contents('names2.txt', $contents2);
 
 $contents3 = file_get_contents('names2.txt');
 echo $contents3;
+
+//一行づつ配列の要素としてとして組み込む
+$lines = file('names2.txt', FILE_IGNORE_NEW_LINES);
+var_dump($lines);
+
+file_put_contents('data/taro.txt', "taro\n");
+file_put_contents('data/jiro.txt', "jiro\n");
+
+$dp = opendir('data');
+while (($item = readdir($dp)) !== false ) {//一行づつ読み込んでくれる
+  if ($item === '.' || $item === '..') {
+    continue; //スキップ処理
+  }
+  echo $item . PHP_EOL;
+}
