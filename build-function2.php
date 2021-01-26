@@ -197,3 +197,39 @@ while (($item = readdir($dp)) !== false ) {//一行づつ読み込んでくれ�
   }
   echo $item . PHP_EOL;
 }
+
+//別の方法　見つけた結果を配列で返す
+foreach (glob('data/*.txt') as $item) {
+  // echo $item . PHP_EOL;
+  echo  basename($item) . PHP_EOL;
+}
+
+//存在チェック
+
+if (file_exists('data/saburo.txt') === false) {
+  //if (!file_exists())
+  echo "saburo not here!" . PHP_EOL;
+  // exit;　このイグジットで処理を止めている
+}
+if (file_exists('data') === true) {
+  echo 'data exists!' . PHP_EOL;
+}
+
+if (is_writeable('data/taro.txt') === true) {
+  echo 'taro is writeable!'  . PHP_EOL;
+}
+
+if (is_readable('data/jiro.txt') === true) {
+  echo 'jiro is readable' . PHP_EOL;
+}
+
+echo time() . PHP_EOL;
+//現在日時を単に表示したい場合はtime省略可能
+echo date('Y-m-d l', time()) . PHP_EOL;
+//特定日時のタイムスタンプの簡単な出し方
+//mktimeで引数は一個目から時分秒月日年
+echo date('Y-m-d l', mktime(0, 0, 0, 5, 1, 2010)) . PHP_EOL;
+//strtotime日時っぽい文字列からタイムスタンプを作成
+echo date('Y-m-d l', strtotime('2002-05-08')) . PHP_EOL;
+echo date('Y-m-d l', strtotime('2002-05-08 +1 day')) . PHP_EOL;
+
