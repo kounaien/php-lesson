@@ -1,7 +1,18 @@
 <?php
+declare(strict_types=1);
+
+trait LikeTrait
+{
+
+  private $likes = 0;
+
+  public function like()
+  {
+    $this->likes++;
+  }
+}
 //弱い片付けなのでストリングの型付けにも数値が文字列に変換され入ってしまうそこで強い型付け
 //ただこれをしても文字列の後にドットをつけて数値をいれても入ってしまった
-declare(strict_types=1);
 
 interface LikeInterface
 {
@@ -43,12 +54,15 @@ public function __construct(string $text)
 class Post extends BasePost implements LikeInterface
 {
 
-  private $likes = 0;
+  use LikeTrait;
 
-  public function like()
-  {
-    $this->likes++;
-  }
+  //tarit化
+  // private $likes = 0;
+
+  // public function like()
+  // {
+  //   $this->likes++;
+  // }
 
   //プロパティ（クラスの中で定義した変数）
   //アクセス修飾子をprivateに変更するとクラス外からはアクセスできなくなる
@@ -133,13 +147,15 @@ class SponsoredPost extends BasePost
 
 class PremiumPost extends BasePost implements LikeInterface
 {
-  private $likes = 0;
+
+  use LikeTrait;
+  // private $likes = 0;
   private $price;
 
-  public function like()
-  {
-    $this->likes++;
-  }
+  // public function like()
+  // {
+  //   $this->likes++;
+  // }
 
   public function __construct($text, $price)
   {
